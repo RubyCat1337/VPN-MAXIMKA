@@ -16,16 +16,15 @@ proxyType='socks' # socks or http
 counter=0
 VPNproxyString=''
 cURLproxyString=''
-
+GREEN='\033[0;32m' # код ANSI для зеленого цвета
+NC='\033[0m'      # код ANSI для сброса цвета
+SPIN_CHARS="/-\|"
 #что сверху это конвиг  снизу код 
 
 #!/bin/bash
 
-# Load configuration from a separate file
 
-# Logging function
-# Функція для завантаження списку VPN
-#!/bin/bash
+
 
 # Load configuration from a separate file
 
@@ -72,11 +71,30 @@ start_openvpn() {
   fi
 }
 
+echo -e "\033[0;32mСкоро впн запустится\033[0m\ \033[0;31mИдет скачевания Впн листа.\033[0m "
+
+echo -n "Обработка: "  # Prints the initial message without a newline
+for i in {1..20}; do  # Outer loop runs 10 times
+    for char in ${SPIN_CHARS}; do  # Inner loop iterates over characters in the variable SPIN_CHARS
+        echo -ne "\b\033[32m${char}"  # Prints the current character without a newline, using \r to overwrite the previous output
+        sleep 0.4  # Pauses for 0.1 seconds to create the animation effect
+    done
+done
+
+echo -e "\033[0m"
+
+handle_error() {
+  log "Помилка: $1"
+  exit 1
+}
+
+# ... (unchanged functions)
+
 while true; do
   download_vpn_list
 
-  if [ $useSavedVPNlist -eq 1 ] && [ -s $vpnList ]; then
-    log 'Використання існуючого списку VPN.'
+  if [ ! -s $vpnList ]; then
+    handle_error 'Не вдалося отримати списку VPN або список порожній.'
   fi
 
   counter=0
@@ -84,6 +102,10 @@ while true; do
     array[$counter]="$line"
     ((counter++))
   done < <(grep -E ",$country" $vpnList)
+
+  if [ $counter -eq 0 ]; then
+    handle_error 'Не знайдено жодних серверів VPN з обраної країни.'
+  fi
 
   create_vpn_config
   start_openvpn
