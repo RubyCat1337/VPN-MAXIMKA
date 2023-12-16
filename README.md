@@ -13,7 +13,9 @@ VPN-MAXIMKA — это Bash-скрипт, предназначенный для 
 Использование:
 
 git clone https://github.com/your-username/VPN-MAXIMKA.git
+
 chmod +x vpn-maximka.sh
+
 ./vpn-maximka.sh
 
 Следуйте инструкциям, чтобы выбрать VPN-сервер и инициировать соединение.
