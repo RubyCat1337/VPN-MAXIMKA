@@ -32,6 +32,21 @@ You can customize the behavior of the script by modifying the parameters in the 
 - `proxy`: Set to 1 if you want to connect to the VPN server through a proxy.
 - `proxyIP`, `proxyPort`, `proxyType`: Configure proxy settings if `proxy` is set to 1.
 
+### Technologies
+
+***Bash (Bourne Again SHell)***
+***cURL***
+***awk***
+***Base64***
+***OpenVPN***
+***Proxy (SOCKS, HTTP)***
+***ANSI Escape Codes***
+***Loops (while, for)***
+***Functions***
+***Conditional Statements***
+***Bash Arrays***
+***User Input***
+
 ### Running the Script
 ```bash
 git clone https://github.com/RubyCat1337/VPN-MAXIMKA.git
