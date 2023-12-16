@@ -55,5 +55,5 @@ You can customize the behavior of the script by modifying the parameters in the 
 ```bash
 git clone https://github.com/RubyCat1337/VPN-MAXIMKA.git
 chmod +x vpn-maximka.sh
-./vpn-maximka.sh
+./vpn-maximka.sh --help
 
