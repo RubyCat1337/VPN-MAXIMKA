@@ -23,6 +23,7 @@ Use this script responsibly, and ensure compliance with the terms of service of 
 ### Prerequisites
 
 - Ensure that you have Bash installed on your system.
+- Make sure you have OpenVPN
 - Make sure you have the necessary permissions to run the script with sudo.
 
 ### Configuration
