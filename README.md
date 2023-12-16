@@ -4,6 +4,17 @@ VPN-MAXIMKA.V.02.stable is a bash script designed to facilitate VPN connections 
 
 ## Usage
 
+...
+
+## Disclaimer
+
+**Please note that the use of this script is at your own risk. The author assumes no responsibility for any consequences arising from its use.**
+
+This script is provided "as is," without any warranty, express or implied. The author makes no guarantees regarding its functionality or suitability for any specific purpose. Users are encouraged to review and modify the script according to their requirements and to exercise caution when working with network-related tools.
+
+Use this script responsibly, and ensure compliance with the terms of service of any services or APIs it interacts with. The author is not liable for any damages or issues that may arise from the use of this script.
+
+
 ### Prerequisites
 
 - Ensure that you have Bash installed on your system.
