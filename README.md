@@ -12,9 +12,9 @@ VPN-MAXIMKA — это Bash-скрипт, предназначенный для 
 Журналирование: Подробное протоколирование событий для устранения неполадок и отслеживания.
 Использование:
 
-Клонируем репозиторий:git clone https://github.com/your-username/VPN-MAXIMKA.git
-
-Выполните скрипт:./vpn-maximka.sh
+git clone https://github.com/your-username/VPN-MAXIMKA.git
+chmod +x vpn-maximka.sh
+./vpn-maximka.sh
 
 Следуйте инструкциям, чтобы выбрать VPN-сервер и инициировать соединение.
 При необходимости настройте параметры прокси-сервера для подключений к VPN-серверу.
