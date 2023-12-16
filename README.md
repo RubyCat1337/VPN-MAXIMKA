@@ -2,9 +2,8 @@
 
 VPN-MAXIMKA.V.02.stable is a bash script designed to facilitate VPN connections by retrieving a list of VPN servers and connecting to a randomly selected server from a specified country.
 
-## Usage
 
-...
+
 
 ## Disclaimer
 
@@ -14,6 +13,9 @@ This script is provided "as is," without any warranty, express or implied. The a
 
 Use this script responsibly, and ensure compliance with the terms of service of any services or APIs it interacts with. The author is not liable for any damages or issues that may arise from the use of this script.
 
+---
+
+**Note:** Always respect legal and ethical considerations, and make sure you have the necessary permissions to use network-related tools and services.
 
 ### Prerequisites
 
