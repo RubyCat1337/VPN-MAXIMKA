@@ -1,44 +1,27 @@
 # VPN-MAXIMKA.V.02.stable
-что бы код роботал ван нужны OpenVpn и права администратора  я не буду давать инцтрукцию потому-что  я думаю что вы и так умные изнаета как устоновить OpenVpn
 
-VPN-МАКСИМКА
-Обзор:
-VPN-MAXIMKA — это Bash-скрипт, предназначенный для упрощения процесса подключения к VPN-серверам с vpngate.net. Он предлагает удобный способ исследования и подключения к различным VPN-серверам, позволяя пользователям выбирать серверы на основе своих предпочтений, таких как страна или рейтинг сервера.
+VPN-MAXIMKA.V.02.stable is a bash script designed to facilitate VPN connections by retrieving a list of VPN servers and connecting to a randomly selected server from a specified country.
 
-Функции:
-Динамический выбор сервера: Случайный выбор VPN-сервера для увеличения разнообразия вариантов.
-Поддержка прокси: Настраиваемые параметры прокси-сервера для подключения к VPN-серверам через прокси.
-Взаимодействие с пользователем: Интерактивный интерфейс предлагает пользователям попробовать другой VPN-сервер, что повышает удобство использования.
-Журналирование: Подробное протоколирование событий для устранения неполадок и отслеживания.
-Использование:
+## Usage
 
-git clone https://github.com/your-username/VPN-MAXIMKA.git
+### Prerequisites
 
+- Ensure that you have Bash installed on your system.
+- Make sure you have the necessary permissions to run the script with sudo.
+
+### Configuration
+
+You can customize the behavior of the script by modifying the parameters in the script itself:
+
+- `country`: Set the desired country code for VPN servers. Leave it empty for any country or specify JP, KR, US, TH, etc.
+- `useSavedVPNlist`: Set to 1 if you want to use a saved VPN list instead of downloading it every time you run the script.
+- `useFirstServer`: Set to 1 to always choose the first VPN server from the list.
+- `proxy`: Set to 1 if you want to connect to the VPN server through a proxy.
+- `proxyIP`, `proxyPort`, `proxyType`: Configure proxy settings if `proxy` is set to 1.
+
+### Running the Script
+```bash
+git clone https://github.com/RubyCat1337/VPN-MAXIMKA.git
 chmod +x vpn-maximka.sh
-
 ./vpn-maximka.sh
-
-Следуйте инструкциям, чтобы выбрать VPN-сервер и инициировать соединение.
-При необходимости настройте параметры прокси-сервера для подключений к VPN-серверу.
-
-Конфигурация:
-Настройте в скрипте такие параметры, как country, useSavedVPNlist, useFirstServer и другие, в соответствии со своими потребностями.< /а>
-Изучите и измените настройки прокси-сервера в соответствии с требованиями вашей сети.
-Соображения безопасности:
-Будьте осторожны при хранении конфиденциальной информации, такой как конфигурации VPN, во временных файлах.
-Рассмотрите безопасные методы обработки конфиденциальных данных.
-Взносы:
-Вклады не  приветствуются! мне похуй на ошыбки доже если код не будет работать 
-
-Лицензия:
-Этот сценарий выпущен под лицензией апаче 2 0 .
-
-Отказ от ответственности:
-VPN-MAXIMKA — это проект сообщества, не связанный с vpngate.net. Используйте его ответственно и соблюдайте условия VPN-серверов, к которым вы подключаетесь.
-
-
-
-
-
-
 
