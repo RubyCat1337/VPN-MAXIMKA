@@ -19,6 +19,66 @@ cURLproxyString=''
 GREEN='\033[0;32m' # код ANSI для зеленого цвета
 NC='\033[0m'      # код ANSI для сброса цвета
 SPIN_CHARS="/-\|"
+
+show_help() {
+    echo "Usage: $0 [options]"
+    echo "Options:"
+    echo "  -c, --country COUNTRY   Set the country for VPN servers (e.g., JP, KR, US)"
+    echo "  -u, --useSavedVPNlist   Set to 1 if you don't want to download VPN list every time you restart"
+    echo "  -f, --useFirstServer    Set the value to 0 to choose a random VPN server, otherwise set to 1"
+    echo "  -P, --proxy             Set to 1 if you want to connect to VPN server through a proxy"
+    echo "  -pIP, --proxyIP         Set the proxy IP address"
+    echo "  -p, --proxyPort         Set the proxy port"
+    echo "  -pT, --proxyType        Set the proxy type (socks or http)"
+    echo "  -h, --help              Show this help message"
+    exit 0
+}
+
+
+
+# Задайте аргументы командной строки
+while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case $key in
+        -c|--country)
+            country="$2"
+            shift
+            ;;
+        -u|--useSavedVPNlist)
+            useSavedVPNlist="$2"
+            shift
+            ;;
+        -f|--useFirstServer)
+            useFirstServer="$2"
+            shift
+            ;;
+        -P|--proxy)
+            proxy="$2"
+            shift
+            ;;
+        -pIP|--proxyIP)
+            proxyIP="$2"
+            shift
+            ;;
+        -p|--proxyPort)
+            proxyPort="$2"
+            shift
+            ;;
+        -pT|--proxyType)
+            proxyType="$2"
+            shift
+            ;;
+        -h|--help)
+            show_help
+            ;;
+        *)
+            echo "Неизвестный параметр: $key"
+            exit 1
+            ;;
+    esac
+    shift
+done
 #что сверху это конвиг  снизу код 
 
 #!/bin/bash
@@ -71,33 +131,30 @@ start_openvpn() {
   fi
 }
 
-echo -e "\033[0;32mСкоро впн запустится\033[0m\ \033[0;31mИдет скачевания Впн листа.\033[0m "
 
-echo -n "Обработка: "  # Prints the initial message without a newline
-for i in {1..20}; do  # Outer loop runs 10 times
-    for char in ${SPIN_CHARS}; do  # Inner loop iterates over characters in the variable SPIN_CHARS
-        echo -ne "\b\033[32m${char}"  # Prints the current character without a newline, using \r to overwrite the previous output
-        sleep 0.4  # Pauses for 0.1 seconds to create the animation effect
+
+while true; do
+  # Download VPN list only if useSavedVPNlist is set to 0
+  if [ $useSavedVPNlist -eq 0 ]; then
+    echo -e "\033[0;32mСкоро впн запустится\033[0m\ \033[0;31mИдет скачевания Впн листа.\033[0m "
+    echo -n "Обработка: "  # Prints the initial message without a newline
+	for i in {1..20}; do  # Outer loop runs 10 times
+    		for char in ${SPIN_CHARS}; do  # Inner loop iterates over characters in the variable SPIN_CHARS
+        	echo -ne "\b\033[32m${char}"  # Prints the current character without a newline, using \r to overwrite the previous output
+        	sleep 0.4  # Pauses for 0.1 seconds to create the animation effect
     done
 done
 
 echo -e "\033[0m"
+    download_vpn_list
 
-handle_error() {
-  log "Помилка: $1"
-  exit 1
-}
-
-# ... (unchanged functions)
-
-while true; do
-  download_vpn_list
-
-  if [ ! -s $vpnList ]; then
-    handle_error 'Не вдалося отримати списку VPN або список порожній.'
+    if [ ! -s $vpnList ]; then
+      handle_error 'Не вдалося отримати списку VPN або список порожній.'
+    fi
   fi
 
   counter=0
+  echo -e "\033[0;32mСкоро впн запустится\033[0m"
   while read -r line; do
     array[$counter]="$line"
     ((counter++))
