@@ -34,18 +34,18 @@ You can customize the behavior of the script by modifying the parameters in the 
 
 ### Technologies
 
-***Bash (Bourne Again SHell)***
-***cURL***
-***awk***
-***Base64***
-***OpenVPN***
-***Proxy (SOCKS, HTTP)***
-***ANSI Escape Codes***
-***Loops (while, for)***
-***Functions***
-***Conditional Statements***
-***Bash Arrays***
-***User Input***
+- ***Bash (Bourne Again SHell)***
+- ***cURL***
+- ***awk***
+- ***Base64***
+- ***OpenVPN***
+- ***Proxy (SOCKS, HTTP)***
+- ***ANSI Escape Codes***
+- ***Loops (while, for)***
+- ***Functions***
+- ***Conditional Statements***
+- ***Bash Arrays***
+- ***User Input***
 
 ### Running the Script
 ```bash
