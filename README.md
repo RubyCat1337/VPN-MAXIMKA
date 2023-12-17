@@ -28,28 +28,36 @@ Use this script responsibly, and ensure compliance with the terms of service of 
 
 ### Configuration
 
+## Configuration
+
 You can customize the behavior of the script by modifying the parameters in the script itself:
 
-- `country`: Set the desired country code for VPN servers. Leave it empty for any country or specify JP, KR, US, TH, etc.
-- `useSavedVPNlist`: Set to 1 if you want to use a saved VPN list instead of downloading it every time you run the script.
-- `useFirstServer`: Set to 1 to always choose the first VPN server from the list.
-- `proxy`: Set to 1 if you want to connect to the VPN server through a proxy.
-- `proxyIP`, `proxyPort`, `proxyType`: Configure proxy settings if `proxy` is set to 1.
+- **country:** Set the desired country code for VPN servers. Leave it empty for any country or specify JP, KR, US, TH, etc.
+- **useSavedVPNlist:** Set to 1 if you want to use a saved VPN list instead of downloading it every time you run the script.
+- **useFirstServer:** Set to 1 to always choose the first VPN server from the list.
+- **proxy:** Set to 1 if you want to connect to the VPN server through a proxy.
+- **proxyIP, proxyPort, proxyType:** Configure proxy settings if proxy is set to 1.
+- **proxyUsername, proxyPassword:** Set the proxy username and password if required (leave empty if not needed).
 
-### Technologies
+## Technologies
 
-- ***Bash (Bourne Again SHell)***
-- ***cURL***
-- ***awk***
-- ***Base64***
-- ***OpenVPN***
-- ***Proxy (SOCKS, HTTP)***
-- ***ANSI Escape Codes***
-- ***Loops (while, for)***
-- ***Functions***
-- ***Conditional Statements***
-- ***Bash Arrays***
-- ***User Input***
+The script utilizes the following technologies and features:
+
+- **Bash (Bourne Again SHell):** The scripting language used for the main implementation.
+- **cURL:** Used for downloading the VPN server list.
+- **awk:** Used for text processing to extract information from the server list.
+- **Base64:** Used for decoding Base64-encoded server details.
+- **OpenVPN:** The VPN client used for establishing the connection.
+- **Proxy (SOCKS, HTTP):** Optional feature to connect to the VPN server through a proxy.
+- **ANSI Escape Codes:** Used for colorizing terminal output.
+- **Loops (while, for):** Used for iterative tasks and waiting periods.
+- **Functions:** Segmented code into functions for better organization.
+- **Conditional Statements:** Used for decision-making based on user input.
+- **Bash Arrays:** Used to store and manage VPN server details.
+- **User Input:** Accepts user input to customize script behavior.
+
+Feel free to further customize and enhance the script based on your specific requirements!
+
 
 ### Running the Script
 ```bash
