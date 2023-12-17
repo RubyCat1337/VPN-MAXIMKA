@@ -11,7 +11,9 @@ proxy=0 # replace with 1 if you want to connect to VPN server through a proxy
 proxyIP=''
 proxyPort=8080
 proxyType='socks' # socks or http
- 
+proxyUsername='your_proxy_username' # optional, set to an empty string if not required
+proxyPassword='your_proxy_password' # optional, set to an empty string if not required
+
 # don't change this:
 counter=0
 VPNproxyString=''
@@ -30,6 +32,8 @@ show_help() {
     echo "  -pIP, --proxyIP         Set the proxy IP address"
     echo "  -p, --proxyPort         Set the proxy port"
     echo "  -pT, --proxyType        Set the proxy type (socks or http)"
+    echo "  -pN, --proxyUsername    Set the proxy username (optional; leave empty if not required)"
+    echo "  -pP, --proxyPassword    Set the proxy password (optional; leave empty if not required)"
     echo "  -h, --help              Show this help message"
     exit 0
 }
@@ -72,6 +76,14 @@ while [[ $# -gt 0 ]]; do
         -h|--help)
             show_help
             ;;
+        -pN|--proxyUsername)
+            proxyUsername="$2"
+            shift
+            ;;
+        -pP|--proxyPassword ) 
+            proxyPassword="$2"
+            shift
+            ;;
         *)
             echo "Неизвестный параметр: $key"
             exit 1
@@ -91,8 +103,16 @@ done
 # Logging function
 download_vpn_list() {
   log "Отримання списку VPN."
+  if [ $proxy -eq 1 ]; then
+    cURLproxyString="--proxy $proxyType://$proxyIP:$proxyPort"
+    if [ -n "$proxyUsername" ] && [ -n "$proxyPassword" ]; then
+      cURLproxyString="$cURLproxyString --proxy-user $proxyUsername:$proxyPassword"
+    fi
+  fi
   curl -s $cURLproxyString https://www.vpngate.net/api/iphone/ > $vpnList 
 }
+
+
 
 log() {
   echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> VPNLOG.log
@@ -132,6 +152,7 @@ start_openvpn() {
     exit 1
   fi
 }
+
 
 
 
