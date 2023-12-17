@@ -10,7 +10,7 @@ vpnList='/tmp/vpns.tmp'
 proxy=0 # replace with 1 if you want to connect to VPN server through a proxy
 proxyIP=''
 proxyPort=8080
-proxyType='socks' # socks or http
+proxyType='socks' # socks or http,socks4,socks5
 proxyUsername='your_proxy_username' # optional, set to an empty string if not required
 proxyPassword='your_proxy_password' # optional, set to an empty string if not required
 
@@ -31,7 +31,7 @@ show_help() {
     echo "  -P, --proxy             Set to 1 if you want to connect to VPN server through a proxy"
     echo "  -pIP, --proxyIP         Set the proxy IP address"
     echo "  -p, --proxyPort         Set the proxy port"
-    echo "  -pT, --proxyType        Set the proxy type (socks or http)"
+    echo "  -pT, --proxyType        Set the proxy type (socks or http,socks4,socks5)"
     echo "  -pN, --proxyUsername    Set the proxy username (optional; leave empty if not required)"
     echo "  -pP, --proxyPassword    Set the proxy password (optional; leave empty if not required)"
     echo "  -h, --help              Show this help message"
