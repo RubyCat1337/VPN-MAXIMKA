@@ -119,10 +119,7 @@ create_vpn_config() {
   log "Деталі обраного сервера VPN: ${array[$index]}"
 }
 
-handle_error() {
-  echo -e "\033[0;31mОшибка: $1\033[0m"
-  exit 1
-}
+
 
 start_openvpn() {
   log 'Спроба запустити клієнт OpenVPN.'
