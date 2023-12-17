@@ -59,9 +59,11 @@ The script utilizes the following technologies and features:
 
 
 
+
 ### Running the Script
 ```bash
 git clone https://github.com/RubyCat1337/VPN-MAXIMKA.git
 chmod +x vpn-maximka.sh
 ./vpn-maximka.sh --help
 
+./vpn-maximka.sh -c JP -u 0 -f 0 -P 1 -pIP your_proxy_ip -pPort 8080 -pType socks -pN your_username -pP your_password 
