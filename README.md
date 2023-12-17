@@ -36,7 +36,7 @@ You can customize the behavior of the script by modifying the parameters in the 
 - **useSavedVPNlist:** Set to 1 if you want to use a saved VPN list instead of downloading it every time you run the script.
 - **useFirstServer:** Set to 1 to always choose the first VPN server from the list.
 - **proxy:** Set to 1 if you want to connect to the VPN server through a proxy.
-- **proxyIP, proxyPort, proxyType:** Configure proxy settings if proxy is set to 1.
+- **proxyIP, proxyPort, proxyType:** Configure proxy settings if ***proxy*** is set to 1.
 - **proxyUsername, proxyPassword:** Set the proxy username and password if required (leave empty if not needed).
 
 ## Technologies
