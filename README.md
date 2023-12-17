@@ -56,7 +56,7 @@ The script utilizes the following technologies and features:
 - **Bash Arrays:** Used to store and manage VPN server details.
 - **User Input:** Accepts user input to customize script behavior.
 
-Feel free to further customize and enhance the script based on your specific requirements!
+
 
 
 ### Running the Script
