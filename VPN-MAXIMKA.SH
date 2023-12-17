@@ -91,7 +91,7 @@ done
 # Logging function
 download_vpn_list() {
   log "Отримання списку VPN."
-  curl -s $cURLproxyString https://www.vpngate.net/api/iphone/ > $vpnList
+  curl -s $cURLproxyString https://www.vpngate.net/api/iphone/ > $vpnList 
 }
 
 log() {
@@ -119,6 +119,11 @@ create_vpn_config() {
   log "Деталі обраного сервера VPN: ${array[$index]}"
 }
 
+handle_error() {
+  echo -e "\033[0;31mОшибка: $1\033[0m"
+  exit 1
+}
+
 start_openvpn() {
   log 'Спроба запустити клієнт OpenVPN.'
 
@@ -138,14 +143,11 @@ while true; do
   if [ $useSavedVPNlist -eq 0 ]; then
     echo -e "\033[0;32mСкоро впн запустится\033[0m\ \033[0;31mИдет скачевания Впн листа.\033[0m "
     echo -n "Обработка: "  # Prints the initial message without a newline
-	for i in {1..20}; do  # Outer loop runs 10 times
-    		for char in ${SPIN_CHARS}; do  # Inner loop iterates over characters in the variable SPIN_CHARS
-        	echo -ne "\b\033[32m${char}"  # Prints the current character without a newline, using \r to overwrite the previous output
-        	sleep 0.4  # Pauses for 0.1 seconds to create the animation effect
-    done
-done
-
-echo -e "\033[0m"
+	for i in {1..20}; do
+  		echo -n -e "\b\033[32m${SPIN_CHARS:i%${#SPIN_CHARS}:1}"
+  		sleep 0.4
+	done
+	echo -e "\033[0m"
     download_vpn_list
 
     if [ ! -s $vpnList ]; then
