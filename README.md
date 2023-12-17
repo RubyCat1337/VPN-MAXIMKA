@@ -1,6 +1,6 @@
 # VPN-MAXIMKA.V.04.stable
 
-VPN-MAXIMKA -- is a Bash script that simplifies the process of connecting to VPN servers using OpenVPN. It provides flexibility to choose servers based on location, use saved VPN lists, and optionally
+VPN-MAXIMKA - is a Bash script that simplifies the process of connecting to VPN servers using OpenVPN. It provides flexibility to choose servers based on location, use saved VPN lists, and optionally
 
 ## Copyright
 
