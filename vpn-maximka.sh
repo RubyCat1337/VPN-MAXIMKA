@@ -8,7 +8,7 @@ source options.SH
 # Load configuration from a separate file
 
 # Logging function
-download_vpn_list() {
+download_vpn_list()  {
   log "Отримання списку VPN."
   if [ $proxy -eq 1 ]; then
     cURLproxyString="--proxy $proxyType://$proxyIP:$proxyPort"
@@ -17,7 +17,7 @@ download_vpn_list() {
     fi
   fi
   curl -s $cURLproxyString https://www.vpngate.net/api/iphone/ > $vpnList 
-}
+} 
 
 
 
@@ -42,7 +42,10 @@ create_vpn_config() {
     log "Вибір випадкового сервера VPN. Обраний індекс: $index"
   fi
 
-  echo ${array[$index]} | awk -F "," '{ print $15 }' | base64 -d > /tmp/openvpn3
+  IFS=',' read -ra parts <<< "${array[$index]}"
+  decoded_value=$(echo "${parts[14]}" | base64 -d)
+  echo "$decoded_value" > /tmp/openvpn3
+
   log "Деталі обраного сервера VPN: ${array[$index]}"
 }
 
