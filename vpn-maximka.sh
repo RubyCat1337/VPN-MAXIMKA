@@ -2,7 +2,7 @@
 
 #!/bin/bash
 
-source options.SH
+source options.sh
 
 
 # Load configuration from a separate file
